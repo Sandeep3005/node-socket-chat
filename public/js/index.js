@@ -3,13 +3,12 @@ const socket = io();
 let data;
 socket.on('connect', () => {
   console.log('connected to server');
-
-  data = { from: 'SandeepC', text: 'Can we watch Avengers tonight ?'}
+  data = { from: 'SandeepC', text: 'Can we watch Avengers tonight ?' };
   // socket.emit('createMessageEvent', data);
 });
 
 socket.on('newMessageEvent', (data) => {
-  console.log('new message read at ', data.createdAt);
+  console.log('new message read at ', data);
 });
 
 socket.on('disconnect', () => {

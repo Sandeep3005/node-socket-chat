@@ -18,14 +18,13 @@ io.on('connection', (socket) => {
     console.log('DISCONNECTED FROM CLIENT');
   });
 
-  // Emit new event
-  // const data = { subject: 'HI', time: new Date().toString() };
-  // socket.emit('newEmail', data);
-
   // Grab the event
-  socket.on('createMessageEvent', (data) => {
-    data.createdAt = new Date().getTime();
-    io.emit('newMessageEvent', data);
+  socket.on('createMessageEvent', () => {
+    // data.createdAt = new Date().getTime();
+    // io.emit('newMessageEvent', data);
+    
+    socket.emit('newMessageEvent', { from: 'Admin', text: 'Welcome User' });
+    socket.broadcast.emit('newMessageEvent', { from: 'Admin', text: 'New User Joined' });
   });
 });
 
