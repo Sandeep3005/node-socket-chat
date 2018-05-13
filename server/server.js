@@ -25,8 +25,7 @@ io.on('connection', (socket) => {
   // Grab the event
   socket.on('createMessageEvent', (data) => {
     data.createdAt = new Date().getTime();
-    
-    socket.emit('newMessageEvent', data);
+    io.emit('newMessageEvent', data);
   });
 });
 

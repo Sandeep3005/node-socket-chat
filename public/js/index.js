@@ -5,7 +5,7 @@ socket.on('connect', () => {
   console.log('connected to server');
 
   data = { from: 'SandeepC', text: 'Can we watch Avengers tonight ?'}
-  socket.emit('createMessageEvent', data);
+  // socket.emit('createMessageEvent', data);
 });
 
 socket.on('newMessageEvent', (data) => {
